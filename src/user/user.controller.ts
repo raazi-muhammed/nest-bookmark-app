@@ -6,10 +6,8 @@ import { GetUser } from '../decorator';
 @UseGuards(JwtGuard)
 @Controller('users')
 export class UserController {
-  @Get('get-me')
-  getMe(@GetUser() user: User) {
-    console.log(user);
-
-    return 'userinfo';
+  @Get('current')
+  currentUser(@GetUser() user: User) {
+    return user;
   }
 }
